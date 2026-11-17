@@ -1,0 +1,11 @@
+Voxarium Remote Android editor
+
+The Markdown codec and document model were adapted from Voxarium Studio.
+Upstream repository: https://github.com/voxarium-studio/dev-studio
+Source directory: frontend/src/lib
+Package author: Voxarium Studio
+Upstream license: MIT. See licenses/STUDIO-METADATA.txt for the terms.
+
+PROVENANCE.json identifies the ported sources. licenses/index.json lists
+third-party components and their notices. The corresponding license texts
+are included in licenses/.

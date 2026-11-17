@@ -1,0 +1,29 @@
+{
+  "_comment": "VS-72: fixtures copied byte-for-byte; provenance is external so Markdown content is unchanged. Source: Voxarium Studio frontend/src/lib/md/__fixtures__/.",
+  "files": {
+    "colors.md": {
+      "source": "frontend/src/lib/md/__fixtures__/colors.md",
+      "sha256": "8b3cc40d180ed46c3f07cac86643e4c2083bced9d928115427714460fa55d158"
+    },
+    "dash-ability.md": {
+      "source": "frontend/src/lib/md/__fixtures__/dash-ability.md",
+      "sha256": "de0bb1b0b289b86e5a32b0f869f063c8b385fcbd72512d9a3f4d72f097c6ddc6"
+    },
+    "directives.md": {
+      "source": "frontend/src/lib/md/__fixtures__/directives.md",
+      "sha256": "67a81d6473cc11504caa63a7e08c92f12f58f9e84157890469b71633382c08f6"
+    },
+    "lists-and-tables.md": {
+      "source": "frontend/src/lib/md/__fixtures__/lists-and-tables.md",
+      "sha256": "4eaca266355ecf0d921b137600e771aafaa5b4db7252bf63851ae6ed96fe9b07"
+    },
+    "unsupported.md": {
+      "source": "frontend/src/lib/md/__fixtures__/unsupported.md",
+      "sha256": "95a510d93aff9a5204f5b1cf539c7e95410b3cf76c50de51e6f607788f547ed2"
+    },
+    "wikilinks.md": {
+      "source": "frontend/src/lib/md/__fixtures__/wikilinks.md",
+      "sha256": "2a37efb5842b9655f0c3a8b80ddd4ed950726b659d813174f1bb25362bb43c2c"
+    }
+  }
+}
