@@ -1,0 +1,67 @@
+# Machine-local SDK path and toolchain/cache (never commit secrets)
+local.properties
+.tools/
+.gradle/
+.kotlin/
+**/build/
+.idea/
+*.iml
+.externalNativeBuild/
+.cxx/
+*.jks
+*.keystore
+keystore.properties
+captures/
+.DS_Store
+Thumbs.db
+
+# Credentials, signing inputs and local service configuration
+.env
+.env.*
+!.env.example
+.npmrc
+key.properties
+signing.properties
+secrets.properties
+*.p12
+*.pfx
+*.pem
+*.key
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+google-services.json
+
+# Local test runs and Android packages
+/.scratch/
+*.apk
+*.aab
+__pycache__/
+/dist/*
+!/dist/audit-apk.py
+!/dist/reproduce.ps1
+!/dist/snapshot.py
+
+# Verification runners are source. Run outputs may contain credentials, wire
+# transcripts, device details, host paths, screenshots and generated binaries.
+/verification/**/*
+!/verification/**/
+!/verification/**/*.py
+!/verification/**/*.ps1
+!/verification/**/*.ts
+!/verification/**/*.mjs
+!/verification/**/index.html
+!/verification/**/*.kt
+!/verification/**/DeviceProbe.java
+!/verification/**/*.gradle
+!/verification/**/python-lock.txt
+!/verification/editor-write-gate.json
+# An approved gate may reference a reviewed evidence manifest.
+!/verification/vs84/accepted-evidence.md
+/verification/**/evidence*/
+/verification/**/current-build/
+/verification/**/historical/
+/verification/**/attempts/
+/verification/**/gate-inputs/
+

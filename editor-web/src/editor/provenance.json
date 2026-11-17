@@ -1,0 +1,30 @@
+{
+  "sourceRoot": "https://github.com/voxarium-studio/dev-studio",
+  "sources": [
+    {
+      "source": "frontend/src/lib/editor/extensions.ts",
+      "sha256": "0eccba32c012db6d85ab932dca7bed1d6aa976ab0d62b7ea3379214769e698c3",
+      "destination": "src/editor/extensions.ts"
+    },
+    {
+      "source": "frontend/src/lib/editor/nodes.ts",
+      "sha256": "333e237200ce726bd6d8835b89074e13ef5032e5b45ad5c155155df7d84d804c",
+      "destination": "src/editor/nodes.ts"
+    },
+    {
+      "source": "frontend/src/lib/editor/text-color.ts",
+      "sha256": "4b0b090355bde15216ae0564c7e74ccca009aed728e9856e9ecf47cb89a9f421",
+      "destination": "src/editor/text-color.ts"
+    },
+    {
+      "source": "frontend/src/lib/collab/carried.ts",
+      "sha256": "5944ecdbbd049b09bba260801ebdfaae9245efdb89e50a807c101a0b7ccd11e8",
+      "destination": "src/collab/carried.ts"
+    },
+    {
+      "source": "frontend/src/lib/collab/seed.ts",
+      "sha256": "52903340b09757287b2bcf68270d8cbfe0ffca0f3b63fcd6892cbe4ca932df84",
+      "destination": "src/collab/seed.ts"
+    }
+  ]
+}

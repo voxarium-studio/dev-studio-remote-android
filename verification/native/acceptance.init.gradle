@@ -1,0 +1,18 @@
+// VS-78 external source set only; never changes production build logic or gate.
+def base = new File(System.getenv('VS78_NATIVE_TEMP'))
+gradle.beforeProject { p ->
+    p.layout.buildDirectory.set(new File(base, 'build/' + (p.path == ':' ? 'root' : p.path.substring(1).replace(':','/'))))
+    p.pluginManager.withPlugin('com.android.application') {
+        p.android.sourceSets.getByName('test').java.srcDir(new File(System.getenv('VS78_NATIVE_SOURCE'), 'src'))
+    }
+    p.tasks.withType(Test).configureEach {
+        systemProperty 'java.io.tmpdir', new File(base, 'jvm').absolutePath
+        systemProperty 'user.home', new File(base, 'home').absolutePath
+        systemProperty 'maven.repo.local', new File(base, 'm2/repository').absolutePath
+        environment 'VOXARIUM_DOCUMENTS_TEST_TEMP', new File(base, 'jvm').absolutePath
+        environment 'VS78_NATIVE_CONFIG', System.getenv('VS78_NATIVE_CONFIG') ?: ''
+        maxHeapSize = '3g'
+        maxParallelForks = 1
+        testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+    }
+}

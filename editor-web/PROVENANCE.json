@@ -1,0 +1,29 @@
+{
+  "task": "VS-72",
+  "sourceRoot": "https://github.com/voxarium-studio/dev-studio",
+  "copiedSource": "See src/md/*.ts headers, src/editor/provenance.json, tests/fixtures/provenance.json, and tests/schema-golden.json.",
+  "additionalReadOrAdaptedSources": [
+    {
+      "source": "frontend/src/lib/collab/editor.spec.ts",
+      "sha256": "1affa783e128ce5eddff30cf8d3205c78f1e416453de92c334f1e9e2bebebfc3"
+    },
+    {
+      "source": "frontend/src/lib/collab/seed.spec.ts",
+      "sha256": "901071d7287ad560979e388cf1efa9123039353218f103b23af3bca38bd0a3ac"
+    },
+    {
+      "source": "frontend/package-lock.json",
+      "sha256": "3ea98af593bf5dbeaf956259abeb0fdce3c28cb6a4e458632a631fd33566400d"
+    },
+    {
+      "source": "frontend/package.json",
+      "sha256": "5223b5d319f27250e5808ba8fb0dd8bb3c566e9bf968b2ec07a9a6337f41ece2"
+    }
+  ],
+  "adaptations": {
+    "tests/model.spec.ts": "Adapted original real-editor scenarios, extended for independent model instances, preflight, bridge boundary and transient typing.",
+    "src/model.ts": "New local binding/lifecycle API, no Studio session/provider port.",
+    "src/validation.ts": "New fail-closed raw-schema/codec preflight, not upstream content-check.",
+    "src/bridge.ts": "New versioned local native seam, no transport or secrets."
+  }
+}

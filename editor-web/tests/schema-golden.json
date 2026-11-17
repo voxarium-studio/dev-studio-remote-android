@@ -1,0 +1,533 @@
+{
+  "format": 1,
+  "capture": {
+    "sourceRoot": "https://github.com/voxarium-studio/dev-studio",
+    "sourceAPI": "frontend/src/lib/collab/seed.ts:roomSchema()",
+    "method": "Captured from the current original Studio roomSchema(), loaded in a temporary Vitest config with the Studio Vue plugin and @ alias; independently compared with the Android roomSchema() before writing. No snapshot was generated from Android output.",
+    "serialization": "Object.entries order is frozen explicitly; marks also record ProseMirror rank; attributeOrder freezes attribute insertion order. Keep every JSON structural NodeSpec/MarkSpec field, rejecting functions/undefined rather than silently dropping them. Only presentation-specific toDOM/parseDOM/toText are omitted intentionally.",
+    "regenerate": "Load the exact reviewed Studio sources and pinned dependencies in a temporary TASK-72 probe; invoke original roomSchema(), apply schema.spec.ts structuralSchema(), independently compare the port, then review and explicitly replace this file. The permanent test never updates the golden and does not need a Studio checkout.",
+    "sourceFiles": [
+      {
+        "source": "frontend/src/lib/editor/extensions.ts",
+        "sha256": "0eccba32c012db6d85ab932dca7bed1d6aa976ab0d62b7ea3379214769e698c3"
+      },
+      {
+        "source": "frontend/src/lib/editor/nodes.ts",
+        "sha256": "333e237200ce726bd6d8835b89074e13ef5032e5b45ad5c155155df7d84d804c"
+      },
+      {
+        "source": "frontend/src/lib/editor/text-color.ts",
+        "sha256": "4b0b090355bde15216ae0564c7e74ccca009aed728e9856e9ecf47cb89a9f421"
+      },
+      {
+        "source": "frontend/src/lib/collab/carried.ts",
+        "sha256": "5944ecdbbd049b09bba260801ebdfaae9245efdb89e50a807c101a0b7ccd11e8"
+      },
+      {
+        "source": "frontend/src/lib/collab/seed.ts",
+        "sha256": "52903340b09757287b2bcf68270d8cbfe0ffca0f3b63fcd6892cbe4ca932df84"
+      },
+      {
+        "source": "frontend/package-lock.json",
+        "sha256": "3ea98af593bf5dbeaf956259abeb0fdce3c28cb6a4e458632a631fd33566400d"
+      }
+    ],
+    "packages": {
+      "@tiptap/core": "3.32.2",
+      "@tiptap/pm": "3.32.2",
+      "@tiptap/starter-kit": "3.32.2",
+      "@tiptap/extension-code-block": "3.32.2",
+      "@tiptap/extension-image": "3.32.2",
+      "@tiptap/extension-list": "3.32.2",
+      "@tiptap/extension-table": "3.32.2",
+      "@tiptap/y-tiptap": "3.2.0",
+      "yjs": "13.6.33"
+    }
+  },
+  "schema": {
+    "nodes": [
+      {
+        "name": "paragraph",
+        "order": 0,
+        "attributeOrder": [],
+        "spec": {
+          "content": "inline*",
+          "group": "block"
+        }
+      },
+      {
+        "name": "blockquote",
+        "order": 1,
+        "attributeOrder": [],
+        "spec": {
+          "content": "block+",
+          "group": "block",
+          "defining": true
+        }
+      },
+      {
+        "name": "bulletList",
+        "order": 2,
+        "attributeOrder": [],
+        "spec": {
+          "content": "listItem+",
+          "group": "block list"
+        }
+      },
+      {
+        "name": "doc",
+        "order": 3,
+        "attributeOrder": [],
+        "spec": {
+          "content": "block+"
+        }
+      },
+      {
+        "name": "hardBreak",
+        "order": 4,
+        "attributeOrder": [
+          "carried"
+        ],
+        "spec": {
+          "group": "inline",
+          "inline": true,
+          "selectable": false,
+          "linebreakReplacement": true,
+          "attrs": {
+            "carried": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "heading",
+        "order": 5,
+        "attributeOrder": [
+          "level"
+        ],
+        "spec": {
+          "content": "inline*",
+          "group": "block",
+          "defining": true,
+          "attrs": {
+            "level": {
+              "default": 1
+            }
+          }
+        }
+      },
+      {
+        "name": "horizontalRule",
+        "order": 6,
+        "attributeOrder": [],
+        "spec": {
+          "group": "block"
+        }
+      },
+      {
+        "name": "listItem",
+        "order": 7,
+        "attributeOrder": [],
+        "spec": {
+          "content": "paragraph block*",
+          "defining": true
+        }
+      },
+      {
+        "name": "orderedList",
+        "order": 8,
+        "attributeOrder": [
+          "start",
+          "type"
+        ],
+        "spec": {
+          "content": "listItem+",
+          "group": "block list",
+          "attrs": {
+            "start": {
+              "default": 1
+            },
+            "type": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "text",
+        "order": 9,
+        "attributeOrder": [],
+        "spec": {
+          "group": "inline"
+        }
+      },
+      {
+        "name": "codeBlock",
+        "order": 10,
+        "attributeOrder": [
+          "language"
+        ],
+        "spec": {
+          "content": "text*",
+          "marks": "",
+          "group": "block",
+          "code": true,
+          "defining": true,
+          "attrs": {
+            "language": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "taskList",
+        "order": 11,
+        "attributeOrder": [],
+        "spec": {
+          "content": "taskItem+",
+          "group": "block list"
+        }
+      },
+      {
+        "name": "taskItem",
+        "order": 12,
+        "attributeOrder": [
+          "carried",
+          "checked"
+        ],
+        "spec": {
+          "content": "paragraph block*",
+          "defining": true,
+          "attrs": {
+            "carried": {
+              "default": null
+            },
+            "checked": {
+              "default": false
+            }
+          }
+        }
+      },
+      {
+        "name": "table",
+        "order": 13,
+        "attributeOrder": [
+          "align"
+        ],
+        "spec": {
+          "tableRole": "table",
+          "content": "tableRow+",
+          "group": "block",
+          "isolating": true,
+          "attrs": {
+            "align": {
+              "default": []
+            }
+          }
+        }
+      },
+      {
+        "name": "tableRow",
+        "order": 14,
+        "attributeOrder": [],
+        "spec": {
+          "tableRole": "row",
+          "content": "(tableCell | tableHeader)*"
+        }
+      },
+      {
+        "name": "tableHeader",
+        "order": 15,
+        "attributeOrder": [
+          "colspan",
+          "rowspan",
+          "colwidth",
+          "align"
+        ],
+        "spec": {
+          "tableRole": "header_cell",
+          "content": "block+",
+          "isolating": true,
+          "attrs": {
+            "colspan": {
+              "default": 1
+            },
+            "rowspan": {
+              "default": 1
+            },
+            "colwidth": {
+              "default": null
+            },
+            "align": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "tableCell",
+        "order": 16,
+        "attributeOrder": [
+          "colspan",
+          "rowspan",
+          "colwidth",
+          "align"
+        ],
+        "spec": {
+          "tableRole": "cell",
+          "content": "block+",
+          "isolating": true,
+          "attrs": {
+            "colspan": {
+              "default": 1
+            },
+            "rowspan": {
+              "default": 1
+            },
+            "colwidth": {
+              "default": null
+            },
+            "align": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "image",
+        "order": 17,
+        "attributeOrder": [
+          "carried",
+          "src",
+          "alt",
+          "title",
+          "width",
+          "height"
+        ],
+        "spec": {
+          "group": "inline",
+          "inline": true,
+          "draggable": true,
+          "attrs": {
+            "carried": {
+              "default": null
+            },
+            "src": {
+              "default": null
+            },
+            "alt": {
+              "default": null
+            },
+            "title": {
+              "default": null
+            },
+            "width": {
+              "default": null
+            },
+            "height": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "wikiLink",
+        "order": 18,
+        "attributeOrder": [
+          "carried",
+          "value",
+          "target",
+          "label"
+        ],
+        "spec": {
+          "group": "inline",
+          "inline": true,
+          "atom": true,
+          "selectable": true,
+          "attrs": {
+            "carried": {
+              "default": null
+            },
+            "value": {
+              "default": ""
+            },
+            "target": {
+              "default": ""
+            },
+            "label": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "directiveTitle",
+        "order": 19,
+        "attributeOrder": [],
+        "spec": {
+          "content": "inline*",
+          "selectable": false,
+          "defining": true
+        }
+      },
+      {
+        "name": "callout",
+        "order": 20,
+        "attributeOrder": [
+          "kind"
+        ],
+        "spec": {
+          "content": "directiveTitle block+",
+          "group": "block",
+          "defining": true,
+          "attrs": {
+            "kind": {
+              "default": "note"
+            }
+          }
+        }
+      },
+      {
+        "name": "toggle",
+        "order": 21,
+        "attributeOrder": [
+          "open"
+        ],
+        "spec": {
+          "content": "directiveTitle block+",
+          "group": "block",
+          "defining": true,
+          "attrs": {
+            "open": {
+              "default": false
+            }
+          }
+        }
+      },
+      {
+        "name": "unsupportedBlock",
+        "order": 22,
+        "attributeOrder": [
+          "mdast"
+        ],
+        "spec": {
+          "group": "block",
+          "atom": true,
+          "selectable": true,
+          "draggable": true,
+          "attrs": {
+            "mdast": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "unsupportedInline",
+        "order": 23,
+        "attributeOrder": [
+          "carried",
+          "mdast"
+        ],
+        "spec": {
+          "group": "inline",
+          "inline": true,
+          "atom": true,
+          "selectable": true,
+          "attrs": {
+            "carried": {
+              "default": null
+            },
+            "mdast": {
+              "default": null
+            }
+          }
+        }
+      }
+    ],
+    "marks": [
+      {
+        "name": "link",
+        "order": 0,
+        "rank": 0,
+        "attributeOrder": [
+          "href",
+          "target",
+          "rel",
+          "class",
+          "title"
+        ],
+        "spec": {
+          "inclusive": false,
+          "attrs": {
+            "href": {
+              "default": null
+            },
+            "target": {
+              "default": "_blank"
+            },
+            "rel": {
+              "default": "noopener noreferrer nofollow"
+            },
+            "class": {
+              "default": null
+            },
+            "title": {
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "name": "bold",
+        "order": 1,
+        "rank": 1,
+        "attributeOrder": [],
+        "spec": {}
+      },
+      {
+        "name": "code",
+        "order": 2,
+        "rank": 2,
+        "attributeOrder": [],
+        "spec": {
+          "excludes": "_",
+          "code": true
+        }
+      },
+      {
+        "name": "italic",
+        "order": 3,
+        "rank": 3,
+        "attributeOrder": [],
+        "spec": {}
+      },
+      {
+        "name": "strike",
+        "order": 4,
+        "rank": 4,
+        "attributeOrder": [],
+        "spec": {}
+      },
+      {
+        "name": "textColor",
+        "order": 5,
+        "rank": 5,
+        "attributeOrder": [
+          "color"
+        ],
+        "spec": {
+          "inclusive": true,
+          "spanning": true,
+          "attrs": {
+            "color": {
+              "default": null
+            }
+          }
+        }
+      }
+    ]
+  }
+}
